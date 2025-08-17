@@ -1,0 +1,95 @@
+{
+	"name": "firebase-project-manager",
+	"license": "MIT",
+	"version": "0.0.5",
+	"author": "rioam2",
+	"homepage": "https://www.npmjs.com/package/firebase-project-manager",
+	"description": "Create and manage your Firebase projects from the command line or with code",
+	"main": "./dist/src/index.js",
+	"bin": {
+		"firebase-project-manager": "./dist/src/cli.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rioam2/firebase-project-manager.git"
+	},
+	"bugs": {
+		"url": "https://github.com/rioam2/firebase-project-manager/issues"
+	},
+	"keywords": [
+		"firebase",
+		"firebase-tools",
+		"cli",
+		"creation",
+		"apis",
+		"automation",
+		"automate",
+		"command-line-tool"
+	],
+	"scripts": {
+		"prebuild": "rm -rf ./dist",
+		"build": "tsc",
+		"postbuild": "chmod +x ./dist/src/cli.js",
+		"firebase-project-manager": "./node_modules/.bin/ts-node ./src/cli.ts",
+		"test": "nyc mocha",
+		"watch": "mocha --watch",
+		"coverage": "nyc report --reporter=text-lcov | coveralls",
+		"prepublishOnly": "yarn build"
+	},
+	"files": [
+		"dist/**"
+	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn test && yarn embedme README.md"
+		}
+	},
+	"nyc": {
+		"include": [
+			"src/**/*.ts"
+		],
+		"extension": [
+			".ts"
+		],
+		"require": [
+			"ts-node/register"
+		],
+		"reporter": [
+			"text"
+		],
+		"sourceMap": true,
+		"instrument": true
+	},
+	"devDependencies": {
+		"@types/chai": "^4.2.0",
+		"@types/cli-spinner": "^0.2.0",
+		"@types/configstore": "^4.0.0",
+		"@types/figlet": "^1.2.0",
+		"@types/inquirer": "^6.5.0",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^12.7.3",
+		"@types/open": "^6.2.1",
+		"@types/sinon": "^7.0.13",
+		"chai": "^4.2.0",
+		"coveralls": "^3.0.6",
+		"embedme": "^1.17.1",
+		"husky": "^3.0.4",
+		"mocha": "^6.0.2",
+		"nyc": "^14.1.1",
+		"sinon": "^7.4.2",
+		"source-map-support": "^0.5.13",
+		"ts-node": "^8.3.0",
+		"tslint": "^5.19.0",
+		"typescript": "^3.6.2"
+	},
+	"dependencies": {
+		"chalk": "^2.4.2",
+		"cli-spinner": "^0.2.10",
+		"commander": "^3.0.1",
+		"configstore": "^5.0.0",
+		"figlet": "^1.2.4",
+		"googleapis": "^43.0.0",
+		"inquirer": "^7.0.0",
+		"open": "^6.4.0"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"extends": ["tslint:latest"],
+	"rules": {
+		"no-implicit-dependencies": [true, "dev"],
+		"quotemark": false,
+		"indent": false,
+		"trailing-comma": false,
+		"no-console": false,
+		"arrow-parens": false,
+		"no-unused-expression": false,
+		"interface-name": false,
+		"ban-types": false,
+		"object-literal-key-quotes": false,
+		"variable-name": false,
+		"no-empty": false,
+		"no-object-literal-type-assertion": false,
+		"member-ordering": false,
+		"unified-signatures": false
+	}
+}
